@@ -35,14 +35,14 @@ module.exports = [
       // mock error
       if (!token) {
         return {
-          code: 60204,
-          message: 'Account and password are incorrect.'
+          ok: false,
+          msg: 'Account and password are incorrect.'
         }
       }
 
       return {
-        code: 20000,
-        data: token
+        ok: true,
+        data: token.token
       }
     }
   },
@@ -58,13 +58,13 @@ module.exports = [
       // mock error
       if (!info) {
         return {
-          code: 50008,
+          ok: false,
           message: 'Login failed, unable to get user details.'
         }
       }
 
       return {
-        code: 20000,
+        ok: true,
         data: info
       }
     }
@@ -76,7 +76,7 @@ module.exports = [
     type: 'post',
     response: _ => {
       return {
-        code: 20000,
+        ok: true,
         data: 'success'
       }
     }
